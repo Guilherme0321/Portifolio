@@ -1,0 +1,172 @@
+body {
+  background: #00111a;
+}
+.lista, .listaM {
+  display: flex;
+  align-items: center;
+  gap: 20vh;
+  padding-inline-end: 18vh;
+}
+.listItem {
+  list-style: none;
+  padding-bottom: .5vh;
+  background: transparent;
+  position: relative;
+}
+.listItem::after{
+  content: " ";
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background: aqua;
+  transition: width .2s ease;
+}
+.listItem:hover::after{
+  width: 100%;
+}
+.text{
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  font-size: 2vh;
+  background: #00111a;
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.textPrincipal {
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+  font-size: 3vh;
+  background: #00111a;
+}
+.titleDIV {
+  margin-inline-start: 10vh;  
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.area {
+  color: aqua;
+  text-decoration: none;
+}
+.titulo {
+  font-size: 3vh;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.section {
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+}
+.icons {
+  display: flex;
+  gap: 3vh;
+}
+.icon {
+  height: 30px;
+  background: black;
+  border-radius: 50%;
+  padding: 1vh;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  gap: 3vh;
+  transition: box-shadow .1s;
+  border: solid aqua;
+}
+
+.icon .cyan{
+  display: block;
+}
+
+.icon .black{
+  display: none;
+}
+
+.icon:hover{
+  background: cyan;
+  box-shadow: 0 0 20px cyan;
+}
+.icon:hover .cyan{
+  display: none;
+}
+.icon:hover .black{
+  display: block;
+}
+.firstPart{
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+.texto {
+  max-width: 80%;
+}
+
+.checkbox{
+  display: none;
+}
+.checkboxIcon, .menu, .close{
+  display: none;
+}
+.listaN{
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .checkboxIcon, .menu{
+    display: block;
+  }
+  .checkboxIcon:hover{
+    cursor: pointer;
+  }
+  .checkbox:checked ~ .checkboxIcon .menu{
+    display: none;
+  }
+  .checkbox:checked ~ .checkboxIcon .close{
+    display: block;
+  }
+  .listaM{
+    display: none;
+  }
+  .listaN {
+    display: flex;
+    gap: 2vh;
+    flex-direction: column;
+    align-items: end;
+    padding-inline-end: 6vh;
+  }
+  .nav-bar {
+    display: block;
+  }
+  .lista {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+  }
+  .HideListM {
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    transition: height .5s ease;
+  }
+  .height {
+    height: 15vh;
+  }
+  .titleDIV {
+    margin-inline-start: 5vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+}
