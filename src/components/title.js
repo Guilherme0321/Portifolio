@@ -43,6 +43,10 @@ function title(){
                     </div>
                 </div>  
             </div>
+            <div className="imagePart">
+                <div className="background-image">
+                </div>
+            </div>
         </header>
     );
 }

@@ -1,5 +1,6 @@
 body {
   background: #00111a;
+  overflow: hidden;
 }
 .lista, .listaM {
   display: flex;
@@ -46,10 +47,11 @@ body {
   background: #00111a;
 }
 .titleDIV {
-  margin-inline-start: 10vh;  
   color: #fff;
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  margin-inline: 4vh 4vh;
 }
 .area {
   color: aqua;
@@ -63,7 +65,9 @@ body {
 .section {
   position: absolute;
   top: 50%;
-  transform: translatey(-50%);
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
 }
 .icons {
   display: flex;
@@ -119,7 +123,40 @@ body {
   display: none;
 }
 
-@media (max-width: 600px) {
+.imagePart {
+  background: black;
+  width: 40vh;
+  height: 40vh;
+  border-radius: 50%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+.imagePart::before{
+  content: " ";
+  background: linear-gradient(90deg,cyan,rgb(255,0,255));
+  position: absolute;
+  z-index: -2;
+  inset: -1vh;
+  border-radius: 50%;
+  animation: rodar 5s ease-in-out infinite alternate;
+}
+.imagePart::after{
+  content: " ";
+  backdrop-filter: blur(15px);
+  inset: -5vh;
+  position: absolute;
+  z-index: -1;
+}
+
+@keyframes rodar {
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 800px) {
   .checkboxIcon, .menu{
     display: block;
   }
@@ -139,8 +176,9 @@ body {
     display: flex;
     gap: 2vh;
     flex-direction: column;
-    align-items: end;
+    align-items: center;
     padding-inline-end: 6vh;
+    justify-content: space-evenly;
   }
   .nav-bar {
     display: block;
@@ -150,6 +188,7 @@ body {
     align-items: center;
     justify-content: space-around;
     padding: 0;
+    margin-bottom: 0;
   }
   .HideListM {
     display: flex;
@@ -158,15 +197,23 @@ body {
     position: relative;
     overflow: hidden;
     height: 0;
+    background: #222;
     transition: height .5s ease;
   }
   .height {
     height: 15vh;
   }
   .titleDIV {
-    margin-inline-start: 5vh;
     color: #fff;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 5vh;
+  }
+  .firstPart {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    margin-inline-start: 5vh;
   }
 }
